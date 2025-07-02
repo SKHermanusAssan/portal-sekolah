@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Digital SK Hermanus Assan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Definisi pemboleh ubah warna untuk konsistensi */
+        :root {
+            --black: #1a1a1a;
+            --blue: #007bff;
+            --white: #ffffff;
+            --yellow: #ffc107;
+        }
+
+        /* Gaya asas untuk badan laman web */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Menggunakan font Montserrat */
+            margin: 0; /* Buang margin lalai */
+            padding: 0; /* Buang padding lalai */
+            background-color: var(--black); /* Latar belakang hitam */
+            color: var(--white); /* Warna teks putih */
+            display: flex; /* Menggunakan flexbox untuk susun atur */
+            flex-direction: column; /* Susun elemen secara menegak */
+            min-height: 100vh; /* Pastikan badan mengambil sekurang-kurangnya 100% ketinggian viewport */
+        }
+
+        /* Gaya untuk bahagian header (atas) */
+        .header {
+            text-align: center; /* Pusatkan teks */
+            padding: 20px; /* Padding di sekeliling header */
+            background-color: var(--blue); /* Latar belakang biru */
+            color: var(--white); /* Warna teks putih */
+        }
+
+        /* Gaya untuk logo sekolah */
+        .header img {
+            width: 120px; /* Lebar logo */
+            height: 120px; /* Ketinggian logo */
+            border-radius: 50%; /* Jadikan logo bulat */
+            border: 5px solid var(--white); /* Sempadan putih di sekeliling logo */
+            object-fit: cover; /* Pastikan imej mengisi ruang tanpa herotan */
+            margin-bottom: 10px; /* Ruang di bawah logo */
+        }
+
+        /* Gaya untuk tajuk "PORTAL DIGITAL" */
+        .header h1 {
+            font-size: 2.5em; /* Saiz fon besar */
+            font-weight: 700; /* Tebal */
+            color: var(--yellow); /* Warna kuning */
+            margin: 0; /* Buang margin lalai */
+            text-transform: uppercase; /* Huruf besar semua */
+        }
+
+        /* Gaya untuk tajuk "SK HERMANUS ASSAN" */
+        .header h2 {
+            font-size: 1.8em; /* Saiz fon sederhana */
+            font-weight: 400; /* Normal */
+            color: var(--white); /* Warna putih */
+            margin: 5px 0 0; /* Margin atas */
+            text-transform: uppercase; /* Huruf besar semua */
+        }
+
+        /* Gaya untuk kandungan utama (butang-butang) */
+        .main-content {
+            flex-grow: 1; /* Biarkan kandungan utama mengambil ruang yang tersedia */
+            display: flex; /* Menggunakan flexbox */
+            justify-content: center; /* Pusatkan butang secara mendatar */
+            align-items: center; /* Pusatkan butang secara menegak */
+            padding: 20px; /* Padding di sekeliling kandungan utama */
+        }
+
+        /* Gaya untuk grid butang */
+        .button-grid {
+            display: grid; /* Menggunakan CSS Grid untuk susun atur butang */
+            grid-template-columns: 1fr; /* Satu lajur secara lalai (untuk mudah alih) */
+            gap: 20px; /* Jarak antara butang */
+            max-width: 800px; /* Lebar maksimum grid */
+            width: 100%; /* Ambil 100% lebar yang tersedia */
+        }
+
+        /* Gaya untuk setiap butang (pautan) */
+        .button-grid a {
+            display: flex; /* Menggunakan flexbox untuk memusatkan teks dalam butang */
+            justify-content: center; /* Pusatkan teks mendatar */
+            align-items: center; /* Pusatkan teks menegak */
+            padding: 30px; /* Padding dalam butang */
+            border-radius: 20px; /* Bucu bulat */
+            font-size: 1.5em; /* Saiz fon butang */
+            font-weight: 700; /* Tebal */
+            text-decoration: none; /* Buang garis bawah pautan */
+            text-align: center; /* Pusatkan teks */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Animasi apabila hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan butang */
+            text-transform: uppercase; /* Huruf besar semua */
+        }
+
+        /* Kesan hover pada butang */
+        .button-grid a:hover {
+            transform: translateY(-5px); /* Gerakkan butang sedikit ke atas */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan lebih gelap */
+        }
+
+        /* Gaya untuk butang kuning */
+        .button-yellow {
+            background-color: var(--yellow); /* Latar belakang kuning */
+            color: var(--black); /* Teks hitam */
+        }
+
+        /* Gaya untuk butang putih */
+        .button-white {
+            background-color: var(--white); /* Latar belakang putih */
+            color: var(--black); /* Teks hitam */
+        }
+
+        /* Gaya untuk bahagian footer (bawah) */
+        .footer {
+            background-color: var(--yellow); /* Latar belakang kuning */
+            color: var(--black); /* Teks hitam */
+            text-align: center; /* Pusatkan teks */
+            padding: 15px; /* Padding di sekeliling footer */
+            font-weight: 700; /* Tebal */
+            font-size: 1.2em; /* Saiz fon */
+            margin-top: auto; /* Tolak footer ke bahagian bawah laman */
+        }
+
+        /* Pelarasan responsif untuk skrin yang lebih lebar */
+        @media (min-width: 600px) {
+            .button-grid {
+                grid-template-columns: 1fr 1fr; /* Dua lajur untuk skrin tablet ke atas */
+            }
+        }
+
+        /* Pelarasan responsif untuk skrin desktop yang lebih besar */
+        @media (min-width: 900px) {
+            .header img {
+                width: 150px; /* Saiz logo lebih besar */
+                height: 150px; /* Saiz logo lebih besar */
+            }
+
+            .header h1 {
+                font-size: 3.5em; /* Saiz fon tajuk lebih besar */
+            }
+
+            .header h2 {
+                font-size: 2.5em; /* Saiz fon subtajuk lebih besar */
+            }
+
+            .button-grid a {
+                font-size: 1.8em; /* Saiz fon butang lebih besar */
+                padding: 40px; /* Padding butang lebih besar */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bahagian Header Portal -->
+    <header class="header">
+        <!-- Logo Sekolah - Gantikan URL ini dengan URL logo sekolah sebenar anda -->
+        <img src="logo skha.png" alt="Logo SK Hermanus Assan">
+        <!-- Tajuk Utama Portal -->
+        <h1>PORTAL DIGITAL</h1>
+        <!-- Nama Sekolah -->
+        <h2>SK HERMANUS ASSAN</h2>
+    </header>
+
+    <!-- Bahagian Kandungan Utama - Mengandungi Butang-butang Navigasi -->
+    <main class="main-content">
+        <div class="button-grid">
+            <!-- Butang KURIKULUM (Kuning) - Gantikan pautan dengan URL Google Drive anda -->
+            <a href="https://drive.google.com/drive/folders/1_buuatXhwMuw_2tYpR2YsI6QCA1zdc7C?usp=drive_link" class="button-yellow" target="_blank">KURIKULUM</a>
+            <!-- Butang HAL EHWAL MURID (Putih) - Gantikan pautan dengan URL Google Drive anda -->
+            <a href="https://drive.google.com/drive/folders/1PPucyIfi7r0vP7y4lgVeMONkQOtwsI1E?usp=drive_link" class="button-white" target="_blank">HAL EHWAL MURID</a>
+            <!-- Butang KO-KURIKULUM (Kuning) - Gantikan pautan dengan URL Google Drive anda -->
+            <a href="https://drive.google.com/drive/folders/1BeO_ZvkjzhLCFpiWy0_bpedc58qq4yVz?usp=drive_link" class="button-yellow" target="_blank">KO-KURIKULUM</a>
+            <!-- Butang PENGURUSAN (Putih) - Gantikan pautan dengan URL Google Drive anda -->
+            <a href="https://drive.google.com/drive/folders/1eLpfNwFwEEvfIO_jZWgmiMfic3r3uGA2?usp=drive_link" class="button-white" target="_blank">PENGURUSAN</a>
+        </div>
+    </main>
+
+    <!-- Bahagian Footer Portal - Mengandungi Motto Sekolah -->
+    <footer class="footer">
+        "HIGH SPEED, HIGH IMPACT"
+    </footer>
+
+</body>
+</html>
